@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">PG - Babahov, Gleb</string>
+    <string name="title">Pirate Name Generator</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="a_picture_of_a_pirate">A picture of a Pirate</string>
+    <string name="hint">Enter Name</string>
+
+    <string-array name="first">
+        <item>Captain</item>
+        <item>Dirty</item>
+        <item>Squidlips</item>
+        <item>Fish Face</item>
+        <item>Buccaneer</item>
+        <item>Two Toes</item>
+        <item>Sharkbait</item>
+        <item>Old</item>
+        <item>Peg Leg</item>
+        <item>Fluffbucket</item>
+        <item>Scallywag</item>
+        <item>Bucko</item>
+        <item>Dead Man</item>
+        <item>Matey</item>
+        <item>Jolly</item>
+        <item>Stinky</item>
+        <item>Stubby</item>
+        <item>Jolly Roger</item>
+        <item>Mad</item>
+        <item>Rascal</item>
+        <item>Lady</item>
+        <item>Brethern</item>
+        <item>Rapscallion</item>
+        <item>Landlubber</item>
+        <item>Miss</item>
+        <item>Freebooter</item>
+    </string-array>
+
+    <string-array name="last">
+        <item>From the West</item>
+        <item>Byrd</item>
+        <item>Jackson</item>
+        <item>Sparrow</item>
+        <item>Of the Coast</item>
+        <item>Jones</item>
+        <item>Ned Head</item>
+        <item>Bart</item>
+        <item>O’ Fish</item>
+        <item>Kidd</item>
+        <item>O’ Malley</item>
+        <item>Barnacle</item>
+        <item>Lobster Legs</item>
+        <item>Hornswaggle</item>
+        <item>McStinky</item>
+        <item>Swashbuckler</item>
+        <item>Sea Wolf</item>
+        <item>Beard</item>
+        <item>Chumbucket</item>
+        <item>Rivers</item>
+        <item>Morgan</item>
+        <item>McStubby</item>
+        <item>Three Gates</item>
+        <item>Bailey</item>
+        <item>Of Atlantis</item>
+        <item>Of Dark Water</item>
+    </string-array>
+</resources>
+
+
+
+
+
+
+
+

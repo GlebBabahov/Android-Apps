@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AM - Babahov, Gleb</string>
+    <string name="title">Animal Memes</string>
+    <string name="greeting">Hello!</string>
+    <string name="toast">Click me!</string>
+    <string name="noNext">No images left! Go backwards instead.</string>
+    <string name="noPrev">No images left! Go forwards instead.</string>
+</resources>
