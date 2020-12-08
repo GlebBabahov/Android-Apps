@@ -11,27 +11,32 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ListView wordList;
-    private TextView wordLength;
+    private ListView stateList;
+    private TextView capital;
+    private TextView state;
+    private String[] states;
+    private String[] capitals;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        wordList = findViewById(R.id.listViewWords);
-        wordLength = findViewById(R.id.textViewWordLength);
+        stateList = findViewById(R.id.listViewStates);
+        capital = findViewById(R.id.textViewCapital);
+        state = findViewById(R.id.textViewState);
 
-        String[] words = {"The", "Quick", "Brown", "Fox", "Jumps", "Over", "The", "Lazy", "Dog"};
+        states = getResources().getStringArray(R.array.states);
+        capitals = getResources().getStringArray(R.array.capitals);
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
-        wordList.setAdapter(arrayAdapter);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, states);
+        stateList.setAdapter(arrayAdapter);
 
-        wordList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        stateList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int length = words[position].length();
-                wordLength.setText(words[position] + " has length " + length);
+                capital.setText(capitals[position]);
+                state.setText(states[position]);
             }
         });
     }

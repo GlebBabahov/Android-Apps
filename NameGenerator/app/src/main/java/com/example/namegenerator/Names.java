@@ -26,7 +26,21 @@ public class Names extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                name.setText(getRandomName());
+                if (!s.toString().equals("")) {
+                    String[] first = getResources().getStringArray(R.array.first);
+                    String[] last = getResources().getStringArray(R.array.last);
+
+                    StringBuilder str = new StringBuilder();
+                    str.append(first[(int) (Math.random() * first.length)]);
+                    str.append(" ");
+                    str.append(s.toString());
+                    str.append(" ");
+                    str.append(last[(int) (Math.random() * last.length)]);
+                    name.setText(str);
+                } else {
+                    name.setText("");
+                }
+
             }
 
             @Override
@@ -36,9 +50,4 @@ public class Names extends AppCompatActivity {
         });
     }
 
-    private String getRandomName() {
-        String[] first = getResources().getStringArray(R.array.first);
-        String[] last = getResources().getStringArray(R.array.last);
-        return first[(int) (Math.random() * first.length)] + " " + last[(int) (Math.random() * last.length)];
-    }
 }
