@@ -1,4 +1,4 @@
-package com.example.namegenerator;
+    package com.example.namegenerator;
 
 import androidx.appcompat.app.AppCompatActivity;
 

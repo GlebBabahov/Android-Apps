@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">LC - Babahov, Gleb</string>
+    <string name="loan_amount">Loan Amount</string>
+    <string name="loan_term">Loan Term</string>
+    <string name="interest_rate">Interest Rate</string>
+    <string name="monthly_payment">Monthly Payment:</string>
+    <string name="months">Months</string>
+    <string name="years">Years</string>
+    <string name="button">Calculate</string>
+    <string name="total_interest_paid">Total Interest Paid:</string>
+    <string name="total_loan_amount">Total Loan Amount</string>
+    <string name="number_of_terms">Number of Terms</string>
+    <string name="textview">TextView</string>
+
+    <string-array name="rates">
+        <item>0%</item>
+        <item>0.5%</item>
+        <item>1%</item>
+        <item>1.5%</item>
+        <item>2%</item>
+        <item>2.5%</item>
+        <item>3%</item>
+        <item>3.5%</item>
+        <item>4%</item>
+        <item>4.5%</item>
+        <item>5%</item>
+        <item>5.5%</item>
+        <item>6%</item>
+        <item>6.5%</item>
+        <item>7%</item>
+        <item>7.5%</item>
+        <item>8%</item>
+        <item>8.5%</item>
+        <item>9%</item>
+        <item>9.5%</item>
+        <item>10%</item>
+    </string-array>
+</resources>
