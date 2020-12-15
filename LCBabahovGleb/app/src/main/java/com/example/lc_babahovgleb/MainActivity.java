@@ -16,21 +16,20 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.lang.reflect.Type;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private Integer amount;
     private Integer term;
-    private Double interest;
+    private double interest;
     private String[] rates;
     private EditText editTextLoanAmount;
     private EditText editTextLoanTerm;
     private RadioGroup radioGroup;
-
-    enum TypeOfTerm {
-        MONTH,
-        YEAR;
-    }
-    private TypeOfTerm termType = TypeOfTerm.MONTH;
+    private TextView textViewMonthlyPayment;
+    private TextView textViewInterestPaid;
+    private TextView textView;
+    private boolean isTermMonth = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
         editTextLoanAmount = findViewById(R.id.editTextLoanAmount);
         editTextLoanTerm = findViewById(R.id.editTextLoanTerm);
         radioGroup = findViewById(R.id.radioGroup);
-
-
+        textViewMonthlyPayment = findViewById(R.id.textViewMonthlyPayments);
+        textViewInterestPaid = findViewById(R.id.textViewInterestPaid);
 
         rates = getResources().getStringArray(R.array.rates);
 
@@ -58,7 +57,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                amount = Integer.parseInt(s.toString());
+                try {
+                    amount = Integer.parseInt(s.toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -70,26 +73,32 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                try {
+                    term = Integer.parseInt(s.toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (termType == TypeOfTerm.MONTH) {
-                    term = Integer.parseInt(s.toString());
-                } else {
-                    term = Integer.parseInt(s.toString()) / 12;
-                }
+
             }
         });
 
         Spinner rateSpinner = findViewById(R.id.spinnerRates);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, rates);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, rates);
         rateSpinner.setAdapter(adapter);
         rateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                interest = Double.parseDouble(rates[position]);
+                try {
+                    String str = rates[position];
+                    str = str.replaceAll("\\D*$", "");
+                    interest = Double.parseDouble(str) / 1200.0;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
@@ -102,19 +111,32 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String monthlyPayment;
-                monthlyPayment = amount * interest * (1 + interest) ^ term / ( (1 + interest) ^ term) - 1 );
-        
+                try {
+                    if (isTermMonth) {
+                        term = Integer.parseInt(editTextLoanTerm.getText().toString());
+                    } else {
+                        term = Integer.parseInt(editTextLoanTerm.getText().toString()) * 12;
+                    }
+                    double monthlyPayment = (amount * interest * (Math.pow(1 + interest, term) / (Math.pow(1 + interest, term) - 1)));
+                    textViewMonthlyPayment.setText("$" + String.format(Locale.US, "%1.2f", monthlyPayment));
+                    textViewInterestPaid.setText("$" + String.format(Locale.US,"%1.2f", ((monthlyPayment * term) - amount)));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 
     public void onSelect(View view) {
-        RadioButton b = findViewById(radioGroup.getCheckedRadioButtonId());
-        if (b.getId() == R.id.radioButtonYears) {
-            termType = TypeOfTerm.YEAR;
-        } else {
-            termType = TypeOfTerm.MONTH;
+        try {
+            RadioButton b = findViewById(radioGroup.getCheckedRadioButtonId());
+            if (b.getId() == R.id.radioButtonYears) {
+                isTermMonth = false;
+            } else {
+                isTermMonth = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

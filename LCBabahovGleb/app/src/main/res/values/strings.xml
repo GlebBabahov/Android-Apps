@@ -11,6 +11,7 @@
     <string name="total_loan_amount">Total Loan Amount</string>
     <string name="number_of_terms">Number of Terms</string>
     <string name="textview">TextView</string>
+    <string name="dollar_sign">$</string>
 
     <string-array name="rates">
         <item>0%</item>
