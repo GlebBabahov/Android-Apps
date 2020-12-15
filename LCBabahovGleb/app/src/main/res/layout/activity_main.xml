@@ -96,12 +96,14 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:checked="true"
+            android:onClick="onSelect"
             android:text="@string/months" />
 
         <RadioButton
             android:id="@+id/radioButtonYears"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:onClick="onSelect"
             android:text="@string/years" />
     </RadioGroup>
 
@@ -117,14 +119,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewMonthyPaymentsLabel"
+        android:id="@+id/textViewMonthlyPaymentsLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
         android:text="@string/monthly_payment"
         app:layout_constraintBottom_toTopOf="@+id/textViewInterestPaidLabel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25
-"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
@@ -132,33 +133,22 @@
         android:id="@+id/textViewInterestPaidLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
         android:text="@string/total_interest_paid"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/textview"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.249"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewInterestPaidLabel" />
 
     <TextView
         android:id="@+id/textViewMonthlyPayments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewMonthyPaymentsLabel"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewMonthlyPaymentsLabel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewMonthyPaymentsLabel"
-        app:layout_constraintTop_toTopOf="@+id/textViewMonthyPaymentsLabel" />
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toEndOf="@+id/textViewMonthlyPaymentsLabel"
+        app:layout_constraintTop_toTopOf="@+id/textViewMonthlyPaymentsLabel" />
 
     <TextView
         android:id="@+id/textViewInterestPaid"
@@ -166,19 +156,18 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/textViewInterestPaidLabel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toEndOf="@+id/textViewInterestPaidLabel"
         app:layout_constraintTop_toTopOf="@+id/textViewInterestPaidLabel" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textViewDollarSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        android:text="@string/dollar_sign"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextLoanAmount"
+        app:layout_constraintEnd_toStartOf="@+id/editTextLoanAmount"
+        app:layout_constraintTop_toTopOf="@+id/editTextLoanAmount" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
