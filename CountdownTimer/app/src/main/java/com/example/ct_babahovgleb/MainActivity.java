@@ -17,7 +17,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     private int minutes = 0;
-    private int seconds = 0;
+    private int seconds = 5;
 //    private int totalSeconds = 0;
     private boolean colonIsVisible = false;
     private boolean isCounting = false;
@@ -113,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
                 isCounting = true;
                 alarmImage.setVisibility(View.INVISIBLE);
                 CountDownTimer timer = new CountDownTimer((seconds + minutes * 60) * 1000, 500) {
+                    int oldMins = minutes;
+                    int oldSecs = seconds;
                     int inc = 0;
                     final MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.alarm);
 
@@ -135,6 +137,10 @@ public class MainActivity extends AppCompatActivity {
                         colonView.setVisibility(colonIsVisible ? View.VISIBLE : View.INVISIBLE);
                         isCounting = false;
                         inc = 0;
+                        minutes = oldMins;
+                        minutesView.setText(String.format(Locale.US, "%02d", minutes));
+                        seconds = oldSecs;
+                        secondsView.setText(String.format(Locale.US, "%02d", seconds));
                     }
                 };
                 timer.start();
@@ -159,3 +165,24 @@ public class MainActivity extends AppCompatActivity {
         secondsView.setText(String.format(Locale.US, "%02d", seconds));
     }
 }
+
+/* TODO
+In this program you will use the CountDownTimer class to build a ... count down timer (very original on my part). Your
+timer must have the ability to change the number of minutes and seconds on the clock.
+
+* Your timer must save the inputted seconds/minutes if the screen is rotated (before clicking start). Once the timer is
+started, if the screen is rotated you are not required to keep the timer working (read below for an 'exceeds' challenge).
+
+Exceeds Challenges
+
+* Have two entirely different layouts for if the screen is portrait or landscape. Have the program automatically adjust
+when switched. You will need to research this yourself (I may make a video in the future if I deem it needed for another
+project, but it is not a tricky concept).
+
+* Once started, change your 'start' button to 'pause'. There is a cancel() method that can be applied to a
+CountDownTimer object, but there is no resume. When a person clicks pause - stop the timer, then let them resume at the
+same time it was paused at.
+
+* Make the timer save states if the user rotates the screen. If the timer was currently counting down it should stay
+counting down with the same time it was before rotating.
+ */
