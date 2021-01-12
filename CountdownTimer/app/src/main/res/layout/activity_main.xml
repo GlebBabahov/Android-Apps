@@ -7,12 +7,104 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textViewSeconds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="00"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewColon"
+        app:layout_constraintStart_toEndOf="@+id/textViewColon"
+        app:layout_constraintTop_toTopOf="@+id/textViewColon" />
+
+    <TextView
+        android:id="@+id/textViewMinutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="00"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewColon"
+        app:layout_constraintEnd_toStartOf="@+id/textViewColon" />
+
+    <TextView
+        android:id="@+id/textViewColon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:text=":"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewMinutes"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButtonSecondsUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSeconds"
+        app:layout_constraintEnd_toEndOf="@+id/textViewSeconds"
+        app:layout_constraintStart_toStartOf="@+id/textViewSeconds"
+        app:srcCompat="@android:drawable/arrow_up_float" />
+
+    <ImageButton
+        android:id="@+id/imageButtonSecondsDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewSeconds"
+        app:layout_constraintStart_toStartOf="@+id/textViewSeconds"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSeconds"
+        app:srcCompat="@android:drawable/arrow_down_float" />
+
+    <ImageButton
+        android:id="@+id/imageButtonMinutesUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewMinutes"
+        app:layout_constraintEnd_toEndOf="@+id/textViewMinutes"
+        app:layout_constraintStart_toStartOf="@+id/textViewMinutes"
+        app:srcCompat="@android:drawable/arrow_up_float" />
+
+    <ImageButton
+        android:id="@+id/imageButtonMinutesDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewMinutes"
+        app:layout_constraintStart_toStartOf="@+id/textViewMinutes"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMinutes"
+        app:srcCompat="@android:drawable/arrow_down_float" />
+
+    <Button
+        android:id="@+id/buttonStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewAlarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="10"
+        android:scaleY="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonStart"
+        app:srcCompat="@android:drawable/ic_lock_idle_alarm"
+        android:contentDescription="TODO" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
